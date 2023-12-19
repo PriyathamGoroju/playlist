@@ -5,7 +5,10 @@ import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import UserStore from "./contexts/UserStore";
 import { useState } from "react";
-
+import { inject } from '@vercel/analytics';
+ 
+inject();
+console.log("HELLO")
 
 function App() {
   const [phoneNumber, setPhoneNumber] =useState("");

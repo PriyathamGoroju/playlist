@@ -15,14 +15,15 @@ function Login() {
 
     const handleClick = () => {
         setPhoneNumber(number);
-        noAuth({
-            method: "GET",
-            url: "/auth/login",
-            // data:{phoneNumber:number}
-        }).then((res) => {
-            localStorage.setItem("reqId", res.requestId);
-            navigate("/verify");
-        });
+        navigate("/verify");
+        // noAuth({
+        //     method: "GET",
+        //     url: "/auth/login",
+        //     data:{phoneNumber:number}
+        // }).then((res) => {
+        //     localStorage.setItem("reqId", res.requestId);
+        //     navigate("/verify");
+        // });
     };
 
     return (

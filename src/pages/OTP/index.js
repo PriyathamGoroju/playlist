@@ -17,37 +17,40 @@ function Verify() {
     };
     const changeOTP =() =>{
         setOtp(["", "", "", ""])
-        noAuth({
-            method: "GET",
-            url: "/auth/login",
-            // data:{phoneNumber:phoneNumber}
-        }).then((res) => {
-            toast.success('OTP sent to your mobile')
-            localStorage.setItem("reqId", res.requestId);
-            navigate("/verify");
-        });
+        toast.success('OTP sent to your mobile');
+        // navigate("/verify");
+        // noAuth({
+        //     method: "GET",
+        //     url: "/auth/login",
+        //     data:{phoneNumber:phoneNumber}
+        // }).then((res) => {
+        //     toast.success('OTP sent to your mobile')
+        //     localStorage.setItem("reqId", res.requestId);
+        //     navigate("/verify");
+        // });
     }
 
     const handleClick = () => {
-        const enteredOtp = otp.join("");
-        noAuth({
-            method: "GET",
-            url: "/auth/verify",
-            data: {
-                phoneNumber: "1234567890",
-                requestId: localStorage.getItem("reqId"),
-                otp: enteredOtp,
-            },
-        })
-            .then((res) => {
-                localStorage.setItem("token", res.token);
-                localStorage.removeItem("reqId");
-                navigate("/home");
-            })
-            .catch((error) => {
-                console.error("Error during OTP verification:", error);
-                toast.error("Failed to verify OTP. Please try again.");
-            });
+        // const enteredOtp = otp.join("");
+        navigate("/home");
+        // noAuth({
+        //     method: "GET",
+        //     url: "/auth/verify",
+        //     data: {
+        //         phoneNumber: "1234567890",
+        //         requestId: localStorage.getItem("reqId"),
+        //         otp: enteredOtp,
+        //     },
+        // })
+        //     .then((res) => {
+        //         localStorage.setItem("token", res.token);
+        //         localStorage.removeItem("reqId");
+        //         navigate("/home");
+        //     })
+        //     .catch((error) => {
+        //         console.error("Error during OTP verification:", error);
+        //         toast.error("Failed to verify OTP. Please try again.");
+        //     });
     };
 
     return (
